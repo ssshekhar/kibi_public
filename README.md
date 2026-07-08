@@ -1,6 +1,6 @@
-# KIDO Legal Pages
+# KIBI Legal Pages
 
-Public legal and policy documents for the [KIDO](https://github.com/ssshekhar/kido) companion robot app, served via GitHub Pages.
+Public legal and policy documents for the [KIBI](https://github.com/ssshekhar/kido) companion robot app, served via GitHub Pages.
 
 - [Privacy Policy](https://ssshekhar.github.io/kibi_public/privacy.html)
 
