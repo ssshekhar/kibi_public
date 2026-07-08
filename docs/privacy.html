@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIDO Privacy Policy</title>
+<style>
+  /* ── Tokens ──────────────────────────────────────────────── */
+  :root {
+    --bg:           #F6F8FA;
+    --bg-raised:    #FFFFFF;
+    --bg-callout:   #EBF6F5;
+    --border:       #DDE2EC;
+    --border-callout: #1E9E8F;
+    --text:         #141820;
+    --text-2:       #5A6478;
+    --text-3:       #8D97A8;
+    --accent:       #1E9E8F;
+    --accent-dim:   #176F65;
+    --never-bg:     #FFF5F5;
+    --never-border: #E05252;
+    --never-text:   #B83232;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:           #0C0F17;
+      --bg-raised:    #131722;
+      --bg-callout:   #0A2522;
+      --border:       #1E2636;
+      --border-callout: #22B5A3;
+      --text:         #E4EAF4;
+      --text-2:       #8892A6;
+      --text-3:       #5A6478;
+      --accent:       #22B5A3;
+      --accent-dim:   #1A8A7C;
+      --never-bg:     #1F0D0D;
+      --never-border: #C04040;
+      --never-text:   #E07070;
+    }
+  }
+
+  :root[data-theme="light"] {
+    --bg:           #F6F8FA;
+    --bg-raised:    #FFFFFF;
+    --bg-callout:   #EBF6F5;
+    --border:       #DDE2EC;
+    --border-callout: #1E9E8F;
+    --text:         #141820;
+    --text-2:       #5A6478;
+    --text-3:       #8D97A8;
+    --accent:       #1E9E8F;
+    --accent-dim:   #176F65;
+    --never-bg:     #FFF5F5;
+    --never-border: #E05252;
+    --never-text:   #B83232;
+  }
+
+  :root[data-theme="dark"] {
+    --bg:           #0C0F17;
+    --bg-raised:    #131722;
+    --bg-callout:   #0A2522;
+    --border:       #1E2636;
+    --border-callout: #22B5A3;
+    --text:         #E4EAF4;
+    --text-2:       #8892A6;
+    --text-3:       #5A6478;
+    --accent:       #22B5A3;
+    --accent-dim:   #1A8A7C;
+    --never-bg:     #1F0D0D;
+    --never-border: #C04040;
+    --never-text:   #E07070;
+  }
+
+  /* ── Reset ───────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── Base ────────────────────────────────────────────────── */
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    padding: 3rem 1.25rem 5rem;
+  }
+
+  /* ── Layout ──────────────────────────────────────────────── */
+  .doc {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ──────────────────────────────────────────────── */
+  .doc-header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .doc-eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.875rem;
+  }
+
+  .doc-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: normal;
+    line-height: 1.2;
+    color: var(--text);
+    text-wrap: balance;
+    margin-bottom: 1rem;
+  }
+
+  .doc-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+    font-size: 0.8125rem;
+    color: var(--text-3);
+  }
+
+  .doc-meta a {
+    color: var(--text-3);
+    text-decoration: underline;
+    text-decoration-color: var(--border);
+  }
+
+  .doc-meta a:hover { color: var(--accent); }
+
+  /* ── Core promise callout ────────────────────────────────── */
+  .callout {
+    background: var(--bg-callout);
+    border-left: 3px solid var(--border-callout);
+    border-radius: 0 6px 6px 0;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .callout-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .callout p {
+    font-size: 1.0625rem;
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  /* ── Sections ────────────────────────────────────────────── */
+  .section {
+    margin-bottom: 2.75rem;
+    padding-left: 1.25rem;
+    border-left: 3px solid var(--border);
+    transition: border-color 0.15s;
+  }
+
+  .section:focus-within,
+  .section:hover {
+    border-left-color: var(--accent);
+  }
+
+  .section-eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.1875rem;
+    font-weight: normal;
+    color: var(--text);
+    margin-bottom: 0.875rem;
+    text-wrap: balance;
+  }
+
+  .section p {
+    font-size: 0.9375rem;
+    color: var(--text-2);
+    margin-bottom: 0.75rem;
+    max-width: 62ch;
+  }
+
+  .section p:last-child { margin-bottom: 0; }
+
+  /* ── Data table ──────────────────────────────────────────── */
+  .data-table-wrap { overflow-x: auto; margin-top: 1rem; }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  .data-table th {
+    text-align: left;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    padding: 0 0.875rem 0.625rem 0;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .data-table td {
+    vertical-align: top;
+    padding: 0.75rem 0.875rem 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-2);
+    line-height: 1.5;
+  }
+
+  .data-table td:first-child {
+    color: var(--text);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.125rem 0.5rem;
+    border-radius: 3px;
+    line-height: 1.6;
+  }
+
+  .tag-local {
+    background: var(--bg-callout);
+    color: var(--accent);
+  }
+
+  .tag-net {
+    background: #EEF2FF;
+    color: #4158D0;
+  }
+
+  :root[data-theme="dark"] .tag-net,
+  @media (prefers-color-scheme: dark) { .tag-net {
+    background: #1A1D35;
+    color: #8B9CF4;
+  }}
+
+  /* ── "Never" list ────────────────────────────────────────── */
+  .never-list {
+    list-style: none;
+    margin-top: 0.875rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .never-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 0.9375rem;
+    color: var(--text-2);
+    line-height: 1.5;
+  }
+
+  .never-list li::before {
+    content: "✕";
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--never-text);
+    background: var(--never-bg);
+    border: 1px solid var(--never-border);
+    border-radius: 3px;
+    padding: 0.125rem 0.3125rem;
+    margin-top: 0.125rem;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+
+  /* ── Rights list ─────────────────────────────────────────── */
+  .rights-list {
+    list-style: none;
+    margin-top: 0.875rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .rights-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .rights-list .right-title {
+    font-size: 0.9375rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .rights-list .right-desc {
+    font-size: 0.875rem;
+    color: var(--text-2);
+  }
+
+  /* ── Footer ──────────────────────────────────────────────── */
+  .doc-footer {
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.25rem;
+  }
+
+  .footer-brand {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1rem;
+    color: var(--text);
+  }
+
+  .footer-brand span {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .footer-contact {
+    font-size: 0.8125rem;
+    color: var(--text-3);
+    text-align: right;
+  }
+
+  .footer-contact a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .footer-contact a:hover { text-decoration: underline; }
+
+  /* ── Focus ───────────────────────────────────────────────── */
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+
+  @media (max-width: 480px) {
+    body { padding: 2rem 1rem 4rem; }
+    .section { padding-left: 1rem; }
+    .footer-contact { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<main class="doc">
+
+  <!-- Header -->
+  <header class="doc-header">
+    <p class="doc-eyebrow">Legal &amp; Privacy</p>
+    <h1 class="doc-title">KIDO™ Privacy Policy</h1>
+    <div class="doc-meta">
+      <span>Last updated: July 2026</span>
+      <span>Applies to: KIDO Android app (all versions)</span>
+      <span>Contact: <a href="mailto:ssshekharsamal@gmail.com">ssshekharsamal@gmail.com</a></span>
+    </div>
+  </header>
+
+  <!-- Core promise -->
+  <div class="callout">
+    <p class="callout-label">Core commitment</p>
+    <p>KIDO is built to work entirely on your phone. Your child's conversations, memories, name, and preferences never leave your device. There is no account, no cloud sync, and no server that receives personal information.</p>
+  </div>
+
+  <!-- Section 1 -->
+  <section class="section">
+    <p class="section-eyebrow">01 — About this policy</p>
+    <h2 class="section-title">Who this applies to</h2>
+    <p>This policy covers the KIDO companion robot Android application published by Shekhar Samal. It describes what information the app handles, where that information lives, and what choices you have as a parent or guardian.</p>
+    <p>KIDO is intended for use by children under parental supervision. We treat all users as if they may be children and apply the same privacy standards across the board.</p>
+  </section>
+
+  <!-- Section 2 -->
+  <section class="section">
+    <p class="section-eyebrow">02 — What KIDO stores</p>
+    <h2 class="section-title">Everything stays on your phone</h2>
+    <p>KIDO stores the following information locally in your phone's private storage. Nothing in this list is transmitted, backed up to a cloud service, or visible to us.</p>
+
+    <div class="data-table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>What</th>
+            <th>Where it lives</th>
+            <th>Who can see it</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Child's name &amp; profile</td>
+            <td>On-device database</td>
+            <td><span class="tag tag-local">Device only</span></td>
+          </tr>
+          <tr>
+            <td>Conversations with KIDO</td>
+            <td>On-device database</td>
+            <td><span class="tag tag-local">Device only</span></td>
+          </tr>
+          <tr>
+            <td>Learned preferences &amp; memories</td>
+            <td>On-device database</td>
+            <td><span class="tag tag-local">Device only</span></td>
+          </tr>
+          <tr>
+            <td>Face recognition data</td>
+            <td>On-device storage</td>
+            <td><span class="tag tag-local">Device only</span></td>
+          </tr>
+          <tr>
+            <td>Parent settings &amp; PIN</td>
+            <td>On-device encrypted storage</td>
+            <td><span class="tag tag-local">Device only</span></td>
+          </tr>
+          <tr>
+            <td>Diagnostic logs (errors)</td>
+            <td>On-device file</td>
+            <td><span class="tag tag-local">Device only</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 3 -->
+  <section class="section">
+    <p class="section-eyebrow">03 — Internet connections</p>
+    <h2 class="section-title">The only times KIDO contacts the internet</h2>
+    <p>KIDO operates offline by design. There are two narrow situations where it makes an outbound network request, and neither involves personal information.</p>
+
+    <div class="data-table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Situation</th>
+            <th>Service contacted</th>
+            <th>What is sent</th>
+            <th>What is NOT sent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Child asks a factual question</td>
+            <td>DuckDuckGo (safe search) &amp; Wikipedia</td>
+            <td><span class="tag tag-net">Network</span> The question topic only</td>
+            <td>Name, age, location, device ID, or any personal detail</td>
+          </tr>
+          <tr>
+            <td>Child asks about the weather</td>
+            <td>wttr.in (no-account weather API)</td>
+            <td><span class="tag tag-net">Network</span> Your device's IP address (standard for any internet request) and, optionally, a city name if spoken</td>
+            <td>Name, precise GPS location, device ID</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:1rem;">Neither service receives an account identifier, device ID, or any information that could be linked back to your child. DuckDuckGo operates under its own strict no-tracking policy (safe search parameter <code>kp=1</code> is always set). wttr.in is a privacy-respecting open-source weather service that does not build user profiles.</p>
+    <p>If you do not want either connection to occur, KIDO will still function fully: factual questions fall back to the on-device language model, and weather questions return a polite "I'm not sure" response.</p>
+  </section>
+
+  <!-- Section 4: First-run model download -->
+  <section class="section">
+    <p class="section-eyebrow">04 — Model downloads</p>
+    <h2 class="section-title">Downloading KIDO's brain on first setup</h2>
+    <p>On first launch, KIDO downloads AI model files (speech recognition, voice, object detection, and language model) from GitHub and public model repositories. These downloads are one-time and can resume if interrupted.</p>
+    <p>During download, only the model file is fetched. No personal information, device identifiers, or usage data are sent. Once installed, these models run entirely offline.</p>
+    <p>Model files are stored in your phone's private app storage and are removed when you uninstall the app.</p>
+  </section>
+
+  <!-- Section 5 -->
+  <section class="section">
+    <p class="section-eyebrow">05 — What we never do</p>
+    <h2 class="section-title">Hard limits, not policy choices</h2>
+    <p>The following are architectural constraints, not just policy statements. The app does not contain the code to do any of these things.</p>
+    <ul class="never-list">
+      <li>Sell, share, or license your child's data to any third party</li>
+      <li>Display advertisements of any kind</li>
+      <li>Create a user account or require registration</li>
+      <li>Upload conversations, memories, or voice recordings to a server</li>
+      <li>Use analytics SDKs, crash-reporting services, or behavioural tracking</li>
+      <li>Access your device's contacts, calendar, SMS, or call history</li>
+      <li>Track your location via GPS</li>
+      <li>Send push notifications without an explicit on-device trigger</li>
+      <li>Run in the background when the app is closed</li>
+    </ul>
+  </section>
+
+  <!-- Section 6 -->
+  <section class="section">
+    <p class="section-eyebrow">06 — Your rights &amp; controls</p>
+    <h2 class="section-title">You own everything KIDO stores</h2>
+    <p>Because all data lives on your device, you have complete control without needing to contact us.</p>
+    <ul class="rights-list">
+      <li>
+        <span class="right-title">Export your family data</span>
+        <span class="right-desc">From the Parent Dashboard → Family Archive → Export. Downloads a complete JSON file of all memories, profiles, and conversation history to your device.</span>
+      </li>
+      <li>
+        <span class="right-title">Delete a family member's data</span>
+        <span class="right-desc">From the Parent Dashboard → Profiles → select member → Remove. Permanently erases all memories, conversations, and face recognition data for that person.</span>
+      </li>
+      <li>
+        <span class="right-title">Delete everything</span>
+        <span class="right-desc">Uninstalling the app removes all stored data permanently. Android's standard app data clear (Settings → Apps → KIDO → Clear Data) also works.</span>
+      </li>
+      <li>
+        <span class="right-title">Disable web lookup</span>
+        <span class="right-desc">Settings → Knowledge → disable "Web answers" and "Weather". KIDO operates fully offline from that point.</span>
+      </li>
+      <li>
+        <span class="right-title">View diagnostic logs</span>
+        <span class="right-desc">Settings → Advanced → View Diagnostics. Logs contain only technical events (model load times, errors) and no conversation content.</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Section 7 -->
+  <section class="section">
+    <p class="section-eyebrow">07 — Children's privacy</p>
+    <h2 class="section-title">COPPA and children under 13</h2>
+    <p>KIDO is designed specifically for young children and complies with the U.S. Children's Online Privacy Protection Act (COPPA) and substantially equivalent regulations including the EU's GDPR-K provisions.</p>
+    <p>We do not knowingly collect personal information from children online. All data described in this policy is stored locally on the family's own device. No information is transmitted to us or to third parties in a form that could identify a child.</p>
+    <p>The Parent Dashboard is PIN-protected and is the only place where family profiles can be created, edited, or deleted. We encourage parents to review KIDO's settings before handing the device to a child.</p>
+    <p>If you believe a child's information has been handled improperly, please contact us at <a href="mailto:ssshekharsamal@gmail.com" style="color:var(--accent);">ssshekharsamal@gmail.com</a> and we will respond within 72 hours.</p>
+  </section>
+
+  <!-- Section 8 -->
+  <section class="section">
+    <p class="section-eyebrow">08 — Camera &amp; microphone</p>
+    <h2 class="section-title">How KIDO uses device sensors</h2>
+    <p><strong style="color:var(--text);">Microphone:</strong> Used only to hear spoken questions and commands while KIDO's listen window is active (triggered by wake word, screen tap, or play mode). Audio is processed entirely on-device by the speech recognition engine. No audio is ever recorded to a file or transmitted.</p>
+    <p><strong style="color:var(--text);">Camera:</strong> Used to detect faces (for profile recognition and presence detection) and objects (for play modes like Treasure Hunt). Camera frames are processed in memory at approximately 1–2 frames per second and immediately discarded. No images are saved to the photo library or transmitted.</p>
+  </section>
+
+  <!-- Section 9 -->
+  <section class="section">
+    <p class="section-eyebrow">09 — Changes to this policy</p>
+    <h2 class="section-title">How we handle updates</h2>
+    <p>If we make a material change to how KIDO handles data — for example, if a future version adds optional cloud backup — we will update this page and increment the "Last updated" date at the top. We will also display a notice in the app at next launch.</p>
+    <p>We will never introduce data collection that contradicts the core commitment at the top of this page without explicit, separate opt-in consent from a parent or guardian.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="doc-footer">
+    <div class="footer-brand">
+      <em>KIDO</em>™ by Shekhar Samal
+    </div>
+    <div class="footer-contact">
+      Questions about this policy?<br>
+      <a href="mailto:ssshekharsamal@gmail.com">ssshekharsamal@gmail.com</a>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>
