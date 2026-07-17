@@ -382,7 +382,7 @@
     <p class="doc-eyebrow">Legal &amp; Privacy</p>
     <h1 class="doc-title">KIBI™ Privacy Policy</h1>
     <div class="doc-meta">
-      <span>Last updated: July 2026</span>
+      <span>Last updated: 17 July 2026</span>
       <span>Applies to: KIBI Android app (all versions)</span>
       <span>Contact: <a href="mailto:ssshekharsamal@gmail.com">ssshekharsamal@gmail.com</a></span>
     </div>
@@ -439,25 +439,32 @@
             <td><span class="tag tag-local">Device only</span></td>
           </tr>
           <tr>
+            <td>Photo Memories (optional)</td>
+            <td>On-device private app storage — off by default, a parent must enable it</td>
+            <td><span class="tag tag-local">Device only</span></td>
+          </tr>
+          <tr>
             <td>Parent settings &amp; PIN</td>
             <td>On-device encrypted storage</td>
             <td><span class="tag tag-local">Device only</span></td>
           </tr>
           <tr>
-            <td>Diagnostic logs (errors)</td>
-            <td>On-device file</td>
+            <td>Diagnostic logs</td>
+            <td>On-device file (size-capped, oldest entries rotated out)</td>
             <td><span class="tag tag-local">Device only</span></td>
           </tr>
         </tbody>
       </table>
     </div>
+
+    <p style="margin-top:1rem;">If a parent flags one of KIBI's generated answers as unsafe or incorrect, the flagged answer is stored on the device for parent review. Nothing is sent to the developer automatically.</p>
   </section>
 
   <!-- Section 3 -->
   <section class="section">
     <p class="section-eyebrow">03 — Internet connections</p>
     <h2 class="section-title">The only times KIBI contacts the internet</h2>
-    <p>KIBI operates offline by design. There are two narrow situations where it makes an outbound network request, and neither involves personal information.</p>
+    <p>KIBI operates offline by design, and optional "Web answers" are switched <strong style="color:var(--text);">off by default</strong> — nothing below happens unless a parent turns the feature on in Settings. When enabled, there are two narrow situations where KIBI makes an outbound request, and neither involves personal information.</p>
 
     <div class="data-table-wrap">
       <table class="data-table">
@@ -473,21 +480,21 @@
           <tr>
             <td>Child asks a factual question</td>
             <td>DuckDuckGo (safe search) &amp; Wikipedia</td>
-            <td><span class="tag tag-net">Network</span> The question topic only</td>
-            <td>Name, age, location, device ID, or any personal detail</td>
+            <td><span class="tag tag-net">Network</span> A short, sanitized subject keyword (a few words at most), never the full sentence</td>
+            <td>Audio, the child's full sentence, name, age, location, device ID, or any personal detail</td>
           </tr>
           <tr>
             <td>Child asks about the weather</td>
             <td>wttr.in (no-account weather API)</td>
-            <td><span class="tag tag-net">Network</span> Your device's IP address (standard for any internet request) and, optionally, a city name if spoken</td>
-            <td>Name, precise GPS location, device ID</td>
+            <td><span class="tag tag-net">Network</span> A city name, and only when one is explicitly spoken — weather questions without a city are answered offline, with no location lookup</td>
+            <td>Name, GPS or IP-based location lookup, device ID</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <p style="margin-top:1rem;">Neither service receives an account identifier, device ID, or any information that could be linked back to your child. DuckDuckGo operates under its own strict no-tracking policy (safe search parameter <code>kp=1</code> is always set). wttr.in is a privacy-respecting open-source weather service that does not build user profiles.</p>
-    <p>If you do not want either connection to occur, KIBI will still function fully: factual questions fall back to the on-device language model, and weather questions return a polite "I'm not sure" response.</p>
+    <p style="margin-top:1rem;">Questions that contain personal language, contact details, or links are kept offline and never sent. Neither service receives an account identifier, device ID, or any information that could be linked back to your child. As with any internet request, the contacted service necessarily sees ordinary connection data such as your IP address; DuckDuckGo operates under its own strict no-tracking policy (safe search parameter <code>kp=1</code> is always set), and wttr.in is a privacy-respecting open-source weather service that does not build user profiles.</p>
+    <p>If you leave Web answers off (the default), no such connection ever occurs and KIBI still functions fully: factual questions fall back to the on-device language model, and weather questions get an honest "I'm not sure" response.</p>
   </section>
 
   <!-- Section 4: First-run model download -->
@@ -525,7 +532,11 @@
     <ul class="rights-list">
       <li>
         <span class="right-title">Export your family data</span>
-        <span class="right-desc">From the Parent Dashboard → Family Archive → Export. Downloads a complete JSON file of all memories, profiles, and conversation history to your device.</span>
+        <span class="right-desc">From the Parent Dashboard → Family data → Export. Saves a complete ZIP archive (profiles, memories, conversation history, and any Photo Memories) to a location you choose on your device. You move the file yourself — it is never uploaded anywhere.</span>
+      </li>
+      <li>
+        <span class="right-title">Control Photo Memories</span>
+        <span class="right-desc">Off by default. If you enable it, special-moment photos are saved only to KIBI's private app storage on this device; you can view and delete them from the Parent Dashboard, and disabling the feature stops new captures.</span>
       </li>
       <li>
         <span class="right-title">Delete a family member's data</span>
@@ -541,7 +552,7 @@
       </li>
       <li>
         <span class="right-title">View diagnostic logs</span>
-        <span class="right-desc">Settings → Advanced → View Diagnostics. Logs contain only technical events (model load times, errors) and no conversation content.</span>
+        <span class="right-desc">Settings → Advanced → View Diagnostics. Logs are timestamped technical events used to diagnose problems; to make that possible they can include short snippets of what was said and answered. They are size-capped, stay on the device, and are never transmitted — sharing them with anyone is always a manual parent action.</span>
       </li>
     </ul>
   </section>
@@ -561,7 +572,8 @@
     <p class="section-eyebrow">08 — Camera &amp; microphone</p>
     <h2 class="section-title">How KIBI uses device sensors</h2>
     <p><strong style="color:var(--text);">Microphone:</strong> Used only to hear spoken questions and commands while KIBI's listen window is active (triggered by wake word, screen tap, or play mode). Audio is processed entirely on-device by the speech recognition engine. No audio is ever recorded to a file or transmitted.</p>
-    <p><strong style="color:var(--text);">Camera:</strong> Used to detect faces (for profile recognition and presence detection) and objects (for play modes like Treasure Hunt). Camera frames are processed in memory at approximately 1–2 frames per second and immediately discarded. No images are saved to the photo library or transmitted.</p>
+    <p><strong style="color:var(--text);">Camera:</strong> Used to detect faces (for profile recognition and presence detection) and objects (for play modes like Treasure Hunt). Live camera frames are processed in memory at approximately 1–2 frames per second and immediately discarded — nothing is transmitted. If a parent enables the optional Photo Memories feature (off by default), KIBI saves occasional special-moment photos to its private app storage on this device only; they never appear in the system photo library, are never uploaded, and can be viewed and deleted from the Parent Dashboard.</p>
+    <p><strong style="color:var(--text);">Bluetooth robot (optional):</strong> Pairing with the KIBI robot chassis uses Android's Companion Device Manager: Android itself performs the discovery and shows a system chooser that a parent must approve. KIBI does not scan for other devices and does not request device location.</p>
   </section>
 
   <!-- Section 9 -->
