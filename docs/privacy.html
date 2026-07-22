@@ -382,7 +382,7 @@
     <p class="doc-eyebrow">Legal &amp; Privacy</p>
     <h1 class="doc-title">KIBI™ Privacy Policy</h1>
     <div class="doc-meta">
-      <span>Last updated: 17 July 2026</span>
+      <span>Last updated: 22 July 2026</span>
       <span>Applies to: KIBI Android app (all versions)</span>
       <span>Contact: <a href="mailto:ssshekharsamal@gmail.com">ssshekharsamal@gmail.com</a></span>
     </div>
@@ -457,14 +457,14 @@
       </table>
     </div>
 
-    <p style="margin-top:1rem;">If a parent flags one of KIBI's generated answers as unsafe or incorrect, the flagged answer is stored on the device for parent review. Nothing is sent to the developer automatically.</p>
+    <p style="margin-top:1rem;">If a child or parent flags one of KIBI's generated answers as unsafe or incorrect, the flagged answer is stored on the device for parent review. Nothing is sent to the developer automatically. A parent can <em>choose</em> to send a flagged answer to the developer — see "Parent-confirmed answer reports" in section 03 for exactly what such a report contains.</p>
   </section>
 
   <!-- Section 3 -->
   <section class="section">
     <p class="section-eyebrow">03 — Internet connections</p>
     <h2 class="section-title">The only times KIBI contacts the internet</h2>
-    <p>KIBI operates offline by design, and optional "Web answers" are switched <strong style="color:var(--text);">off by default</strong> — nothing below happens unless a parent turns the feature on in Settings. When enabled, there are two narrow situations where KIBI makes an outbound request, and neither involves personal information.</p>
+    <p>KIBI operates offline by design, and optional "Web answers" are switched <strong style="color:var(--text);">off by default</strong> — nothing below happens unless a parent turns the feature on in Settings. When enabled, there are three narrow situations where KIBI makes an outbound request, and none of them involves personal information.</p>
 
     <div class="data-table-wrap">
       <table class="data-table">
@@ -489,20 +489,29 @@
             <td><span class="tag tag-net">Network</span> A city name, and only when one is explicitly spoken — weather questions without a city are answered offline, with no location lookup</td>
             <td>Name, GPS or IP-based location lookup, device ID</td>
           </tr>
+          <tr>
+            <td>A learning card shows a real photo</td>
+            <td>Wikipedia (thumbnail lookup)</td>
+            <td><span class="tag tag-net">Network</span> The lesson's subject word only — an animal, planet, landmark, country, or famous-figure name from KIBI's built-in learning content. The image is cached on the device so repeat lessons work offline</td>
+            <td>Audio, the child's words, name, age, location, device ID, or any personal detail</td>
+          </tr>
         </tbody>
       </table>
     </div>
 
     <p style="margin-top:1rem;">Questions that contain personal language, contact details, or links are kept offline and never sent. Neither service receives an account identifier, device ID, or any information that could be linked back to your child. As with any internet request, the contacted service necessarily sees ordinary connection data such as your IP address; DuckDuckGo operates under its own strict no-tracking policy (safe search parameter <code>kp=1</code> is always set), and wttr.in is a privacy-respecting open-source weather service that does not build user profiles.</p>
     <p>If you leave Web answers off (the default), no such connection ever occurs and KIBI still functions fully: factual questions fall back to the on-device language model, and weather questions get an honest "I'm not sure" response.</p>
+
+    <p style="margin-top:1.5rem;"><strong style="color:var(--text);">Parent-confirmed answer reports.</strong> Separately from Web answers, a parent can report a flagged AI answer to the developer. This never happens automatically: the parent opens the PIN-protected dashboard, previews the exact answer, selects a reason, and presses Send. The report contains only three things — the flagged generated answer, the chosen reason, and the app version. It is delivered over HTTPS to a report service running on Cloudflare, which files it as a private GitHub issue that only the developer can read. The report format cannot carry the child's prompt, name, profile, memories, transcript, device identifier, audio, or photos — the app never puts those fields in a report, and the service rejects any payload containing extra fields.</p>
+    <p>As with any internet request, Cloudflare and GitHub necessarily process ordinary connection data such as the sending IP address in order to deliver the report; it is not stored in the report itself. Their own privacy terms apply to that transport. Each report is sent once, on explicit parent action, with no background retries.</p>
   </section>
 
   <!-- Section 4: First-run model download -->
   <section class="section">
     <p class="section-eyebrow">04 — Model downloads</p>
     <h2 class="section-title">Downloading KIBI's brain on first setup</h2>
-    <p>On first launch, KIBI downloads AI model files (speech recognition, voice, object detection, and language model) from GitHub and public model repositories. These downloads are one-time and can resume if interrupted.</p>
-    <p>During download, only the model file is fetched. No personal information, device identifiers, or usage data are sent. Once installed, these models run entirely offline.</p>
+    <p>On first launch, KIBI downloads AI model files (speech recognition, voice, object detection, and language model) from GitHub and public model repositories. These downloads are one-time and can resume if interrupted. While the app is open, KIBI may also check the same public GitHub releases for new offline content packs (stories, quizzes, jokes, facts) and download them the same way.</p>
+    <p>During download, only the model or content file is fetched. No personal information, device identifiers, or usage data are sent. Once installed, these models and packs run entirely offline.</p>
     <p>Model files are stored in your phone's private app storage and are removed when you uninstall the app.</p>
   </section>
 
